@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=600, initial-scale=1.0">
+    <title>Add Truck Details</title>
+    <style>
+        body {
+            background: #f7f7f7;
+            font-family: 'Figtree', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .modal {
+            width: 700px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 20px 30px 0px rgba(0,0,0,0.1), 0px 0px 60px 0px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            box-shadow: 0px 10px 25px 0px rgba(0,0,0,0.1);
+            padding: 24px 36px 24px 36px;
+        }
+        .modal-header .title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #041726;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .modal-header .icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-header .close {
+            width: 44px;
+            height: 44px;
+            background: #fff;
+            border: 1.5px solid #DADCDF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .modal-header .close svg {
+            width: 20px;
+            height: 20px;
+        }
+        .modal-body {
+            padding: 0 48px 0 48px;
+        }
+        .input-group {
+            margin-top: 24px;
+        }
+        .input-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #838B90;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            letter-spacing: 0.2em;
+            display: block;
+        }
+        .input-field, .input-select, .input-textarea {
+            width: 100%;
+            border: 1px solid #B5BAC0;
+            border-radius: 26px;
+            padding: 16px 24px;
+            font-size: 15px;
+            font-family: inherit;
+            box-shadow: inset 0px 2px 4px 0px rgba(0,0,0,0.1);
+            margin-bottom: 0;
+            background: #fff;
+        }
+        .input-select {
+            appearance: none;
+            background: url('data:image/svg+xml;utf8,<svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 5L0.535898 0.5L7.4641 0.5L4 5Z" fill="%23041726"/></svg>') no-repeat right 24px center/8px 5px;
+        }
+        .input-textarea {
+            border-radius: 24px;
+            min-height: 80px;
+            resize: vertical;
+        }
+        .modal-footer {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            background: #fff;
+            box-shadow: 0px -10px 25px 0px rgba(0,0,0,0.1);
+            padding: 24px 36px;
+            border-radius: 0 0 8px 8px;
+        }
+        .footer-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .footer-btn .circle-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #fff;
+            border: 1.5px solid #DADCDF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .footer-btn .circle-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+        .footer-btn .add-btn {
+            background: #E8EAEC;
+            color: #838B90;
+            border: none;
+            border-radius: 20px;
+            padding: 14px 32px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="modal">
+        <div class="modal-header">
+            <span class="title">
+                <span class="icon">
+                    <!-- Placeholder for icon -->
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#2F69BA"/></svg>
+                </span>
+                Add Truck Details
+            </span>
+            <div class="close" title="Close">
+                <svg viewBox="0 0 20 20" fill="none"><path d="M4 4L16 16M16 4L4 16" stroke="#041726" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+        </div>
+        <form class="modal-body">
+            <div class="input-group">
+                <label class="input-label" for="truckCode">Truck Code</label>
+                <input class="input-field" id="truckCode" name="truckCode" type="text" placeholder="Truck Code" />
+            </div>
+            <div class="input-group">
+                <label class="input-label" for="description">Description</label>
+                <textarea class="input-textarea" id="description" name="description" placeholder="Description"></textarea>
+            </div>
+            <div class="input-group">
+                <label class="input-label" for="liscencePlate">Liscence Plate</label>
+                <input class="input-field" id="liscencePlate" name="liscencePlate" type="text" placeholder="Liscence Plate" />
+            </div>
+            <div class="input-group">
+                <label class="input-label" for="maxCubic">Max Cubic</label>
+                <input class="input-field" id="maxCubic" name="maxCubic" type="number" placeholder="Max Cubic" />
+            </div>
+            <div class="input-group">
+                <label class="input-label" for="maxUnits">Max Units</label>
+                <input class="input-field" id="maxUnits" name="maxUnits" type="number" placeholder="Max Units" />
+            </div>
+            <div class="input-group">
+                <label class="input-label" for="maxWeight">Max Weight</label>
+                <input class="input-field" id="maxWeight" name="maxWeight" type="number" placeholder="Max Weight" />
+            </div>
+            <div class="input-group">
+                <label class="input-label" for="homeDC">Home DC</label>
+                <select class="input-select" id="homeDC" name="homeDC">
+                    <option value="">Home DC</option>
+                    <option value="dc1">DC 1</option>
+                    <option value="dc2">DC 2</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label class="input-label" for="vendor">Vendor</label>
+                <select class="input-select" id="vendor" name="vendor">
+                    <option value="">Vendor</option>
+                    <option value="vendor1">Vendor 1</option>
+                    <option value="vendor2">Vendor 2</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label class="input-label" for="status">Status</label>
+                <select class="input-select" id="status" name="status">
+                    <option value="">Status</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+            </div>
+        </form>
+        <div class="modal-footer">
+            <div class="footer-btn">
+                <div class="circle-btn" title="Back">
+                    <svg viewBox="0 0 20 20" fill="none"><path d="M7 10L13 10M10 7L7 10L10 13" stroke="#041726" stroke-width="2" stroke-linecap="round"/></svg>
+                </div>
+                <button class="add-btn" type="button" disabled>add</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
