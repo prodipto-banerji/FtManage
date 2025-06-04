@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=600, initial-scale=1.0">
+    <title>Add Truck Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #f5f6fa;
+            font-family: 'Figtree', Arial, sans-serif;
+        }
+        .modal {
+            width: 600px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 20px 30px 0px rgba(0,0,0,0.1), 0px 0px 60px 0px rgba(0,0,0,0.15);
+            padding-bottom: 32px;
+        }
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+            box-shadow: 0px 10px 25px 0px rgba(0,0,0,0.1);
+            border-radius: 5px 5px 0 0;
+            padding: 0 30px;
+        }
+        .modal-header .icon {
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-header .title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #041726;
+            margin-left: 20px;
+        }
+        .modal-header .close-btn {
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            border: 2px solid #DADCDF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .modal-header .close-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: #041726;
+        }
+        .modal-content {
+            padding: 0 45px;
+        }
+        .input-group {
+            margin-top: 18px;
+        }
+        .input-label {
+            font-size: 10px;
+            font-weight: 600;
+            color: #838B90;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            display: block;
+        }
+        .input-field, .input-select, .input-textarea {
+            width: 100%;
+            height: 50px;
+            border-radius: 26px;
+            border: 1px solid #B5BAC0;
+            background: #fff;
+            font-size: 16px;
+            padding: 0 20px;
+            box-sizing: border-box;
+            outline: none;
+            font-family: 'Figtree', Arial, sans-serif;
+            box-shadow: inset 0px 2px 4px 0px rgba(0,0,0,0.1);
+        }
+        .input-textarea {
+            height: 87px;
+            border-radius: 24px;
+            resize: none;
+            padding-top: 16px;
+        }
+        .input-select {
+            appearance: none;
+            background: url('data:image/svg+xml;utf8,<svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.5 1L4 4L7.5 1" stroke="%23041726" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat right 20px center/12px 8px;
+        }
+        .input-group.status {
+            position: relative;
+        }
+        .input-group.status select {
+            padding-right: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="modal">
+        <div class="modal-header">
+            <div class="icon">
+                <!-- Main nav icon SVG -->
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#2F69BA"/><rect x="7" y="7" width="10" height="10" rx="2" fill="#fff"/></svg>
+            </div>
+            <div class="title">Add Truck Details</div>
+            <div class="close-btn" onclick="document.querySelector('.modal').style.display='none'">
+                <!-- Close icon SVG -->
+                <svg viewBox="0 0 16 16"><line x1="4" y1="4" x2="12" y2="12" stroke="#041726" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="4" x2="4" y2="12" stroke="#041726" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+        </div>
+        <form class="modal-content">
+            <div class="input-group">
+                <label class="input-label" for="truckCode">Truck Code</label>
+                <input class="input-field" id="truckCode" name="truckCode" type="text" placeholder="Enter truck code" required />
+            </div>
+            <div class="input-group">
+                <label class="input-label" for="description">Description</label>
+                <textarea class="input-textarea" id="description" name="description" placeholder="Enter description"></textarea>
+            </div>
+            <div class="input-group">
+                <label class="input-label" for="liscencePlate">Liscence Plate</label>
+                <input class="input-field" id="liscencePlate" name="liscencePlate" type="text" placeholder="Enter liscence plate" />
+            </div>
+            <div class="input-group">
+                <label class="input-label" for="maxCubic">Max Cubic</label>
+                <input class="input-field" id="maxCubic" name="maxCubic" type="number" placeholder="Enter max cubic" />
+            </div>
+            <div class="input-group">
+                <label class="input-label" for="maxUnits">Max Units</label>
+                <input class="input-field" id="maxUnits" name="maxUnits" type="number" placeholder="Enter max units" />
+            </div>
+            <div class="input-group">
+                <label class="input-label" for="maxWeight">Max Weight</label>
+                <input class="input-field" id="maxWeight" name="maxWeight" type="number" placeholder="Enter max weight" />
+            </div>
+            <div class="input-group status">
+                <label class="input-label" for="status">Status</label>
+                <select class="input-select" id="status" name="status">
+                    <option value="">Select status</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
