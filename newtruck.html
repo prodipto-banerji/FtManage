@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Truck Details</title>
+    <style>
+        body {
+            background: #f5f5f5;
+            font-family: 'Inter', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .modal {
+            background: #fff;
+            max-width: 500px;
+            margin: 40px auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            padding: 0;
+            overflow: hidden;
+        }
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 32px 16px 32px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .modal-header h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .modal-header .icon {
+            width: 28px;
+            height: 28px;
+            background: url('data:image/svg+xml;utf8,<svg fill="none" height="28" viewBox="0 0 28 28" width="28" xmlns="http://www.w3.org/2000/svg"><rect fill="%23000" fill-opacity="0.05" height="28" rx="14" width="28"/><path d="M18 10L10 18M10 10L18 18" stroke="%23333" stroke-linecap="round" stroke-width="2"/></svg>') center/contain no-repeat;
+            cursor: pointer;
+        }
+        .modal-body {
+            padding: 32px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-input, .form-select {
+            width: 100%;
+            padding: 16px 20px;
+            border: 1px solid #d1d5db;
+            border-radius: 24px;
+            background: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: border 0.2s;
+            color: #222;
+        }
+        .form-input:focus, .form-select:focus {
+            border-color: #a0aec0;
+        }
+        .form-label {
+            display: none;
+        }
+        .form-select {
+            appearance: none;
+            background: #fff url('data:image/svg+xml;utf8,<svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5" stroke="%23999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat right 20px center/20px 20px;
+        }
+        .modal-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 32px;
+            background: #fafbfc;
+            border-top: 1px solid #f0f0f0;
+        }
+        .footer-btn {
+            border: none;
+            background: #f5f5f5;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .footer-btn:hover {
+            background: #e0e0e0;
+        }
+        .add-btn {
+            background: #e5e7eb;
+            color: #b0b0b0;
+            border: none;
+            border-radius: 24px;
+            padding: 10px 36px;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .add-btn:active {
+            background: #d1d5db;
+        }
+    </style>
+</head>
+<body>
+    <div class="modal">
+        <div class="modal-header">
+            <h2>
+                <span style="display:inline-block;width:24px;height:24px;background:url('data:image/svg+xml;utf8,<svg fill=\'none\' height=\'24\' viewBox=\'0 0 24 24\' width=\'24\' xmlns=\'http://www.w3.org/2000/svg\'><rect fill=\'%2300B8A9\' height=\'24\' rx=\'12\' width=\'24\'/><path d=\'M8 16V8h8v8H8z\' fill=\'%23fff\'/></svg>') center/contain no-repeat;"></span>
+                Add Truck Details
+            </h2>
+            <span class="icon" title="Close"></span>
+        </div>
+        <form>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label" for="truckCode">Truck Code</label>
+                    <input class="form-input" type="text" id="truckCode" name="truckCode" placeholder="TRUCK CODE" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="description">Description</label>
+                    <input class="form-input" type="text" id="description" name="description" placeholder="DESCRIPTION">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="licencePlate">Licence Plate</label>
+                    <input class="form-input" type="text" id="licencePlate" name="licencePlate" placeholder="LISCENCE PLATE">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="maxCubic">Max Cubic</label>
+                    <input class="form-input" type="number" id="maxCubic" name="maxCubic" placeholder="MAX CUBIC">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="maxUnits">Max Units</label>
+                    <input class="form-input" type="number" id="maxUnits" name="maxUnits" placeholder="MAX UNITS">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="maxWeight">Max Weight</label>
+                    <input class="form-input" type="number" id="maxWeight" name="maxWeight" placeholder="MAX WEIGHT">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="status">Status</label>
+                    <select class="form-select" id="status" name="status">
+                        <option value="" disabled selected>STATUS</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="footer-btn" title="Back">
+                    <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#fff"/><path d="M14.5 8l-4 4 4 4" stroke="#B0B0B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <button type="submit" class="add-btn">ADD</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
